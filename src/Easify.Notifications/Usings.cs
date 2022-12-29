@@ -1,10 +1,10 @@
-﻿global using Easify.Notifications.Messaging;
-global using Easify.Notifications.Messaging.Configuration;
-global using Easify.Notifications.Messaging.Configuration.Validators;
-global using Easify.Notifications.Messaging.Exceptions;
-global using Easify.Notifications.Messaging.MailKit;
-global using Easify.Notifications.Templating;
-global using Easify.Notifications.Templating.HandleBars;
+﻿global using LittleBlocks.Notifications.Messaging;
+global using LittleBlocks.Notifications.Messaging.Configuration;
+global using LittleBlocks.Notifications.Messaging.Configuration.Validators;
+global using LittleBlocks.Notifications.Messaging.Exceptions;
+global using LittleBlocks.Notifications.Messaging.MailKit;
+global using LittleBlocks.Notifications.Templating;
+global using LittleBlocks.Notifications.Templating.HandleBars;
 
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Logging;

@@ -14,23 +14,11 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace LittleBlocks.Notifications;
+namespace LittleBlocks.Notifications.Messaging.Configuration;
 
-public class Notification<T> where T : class
+public sealed class SmtpOptions
 {
-    public Notification(string title, string templateName, T data)
-    {
-        Title = title ?? throw new ArgumentNullException(nameof(title));
-        TemplateName = templateName ?? throw new ArgumentNullException(nameof(templateName));
-        Data = data ?? throw new ArgumentNullException(nameof(data));
-    }
-
-    public string Title { get; }
-    public string TemplateName { get; }
-    public T Data { get; }
-
-    public Notification<T> From(string title, string templateName, T data)
-    {
-        return new Notification<T>(title, templateName, data);
-    }
+    public string Server { get; set; }
+    public int Port { get; set; } = 25;
+    public string LocalDomain { get; set; }
 }

@@ -14,23 +14,23 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace LittleBlocks.Notifications;
+namespace LittleBlocks.Notifications.Messaging.Exceptions;
 
-public class Notification<T> where T : class
+public class NotificationOptionsException : Exception
 {
-    public Notification(string title, string templateName, T data)
+    private readonly ValidationResult _validationResult;
+
+    public NotificationOptionsException(string message, ValidationResult validationResult) : base(message)
     {
-        Title = title ?? throw new ArgumentNullException(nameof(title));
-        TemplateName = templateName ?? throw new ArgumentNullException(nameof(templateName));
-        Data = data ?? throw new ArgumentNullException(nameof(data));
+        _validationResult = validationResult;
     }
 
-    public string Title { get; }
-    public string TemplateName { get; }
-    public T Data { get; }
+    public ValidationFailure[] Errors => _validationResult?.Errors.ToArray();
 
-    public Notification<T> From(string title, string templateName, T data)
+    public static NotificationOptionsException FromValidationResults(ValidationResult validationResult)
     {
-        return new Notification<T>(title, templateName, data);
+        if (validationResult == null) throw new ArgumentNullException(nameof(validationResult));
+
+        return new NotificationOptionsException("Error in NotificationOptions. Check the required fields in appsettings.json", validationResult);
     }
 }

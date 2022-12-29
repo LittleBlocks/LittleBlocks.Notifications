@@ -14,23 +14,23 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace LittleBlocks.Notifications;
+namespace LittleBlocks.Notifications.Templating.UnitTests;
 
-public class Notification<T> where T : class
+public class FileBasedTemplateProviderTests
 {
-    public Notification(string title, string templateName, T data)
+    [Fact]
+    public async Task GivenTemplate_WhenCallingGetTemplateContent_ShouldReturnCorrectContent()
     {
-        Title = title ?? throw new ArgumentNullException(nameof(title));
-        TemplateName = templateName ?? throw new ArgumentNullException(nameof(templateName));
-        Data = data ?? throw new ArgumentNullException(nameof(data));
-    }
+        // Arrange
+        var templatePath = "template.hb";
+        var expected = "Hello {{Title}} test at {{date AsOf}}";
 
-    public string Title { get; }
-    public string TemplateName { get; }
-    public T Data { get; }
+        var sut = new FileBasedTemplateProvider();
 
-    public Notification<T> From(string title, string templateName, T data)
-    {
-        return new Notification<T>(title, templateName, data);
+        // Act
+        var actual = await sut.GetTemplateContentAsync(templatePath);
+
+        // Assert
+        actual.Should().Be(expected);
     }
 }

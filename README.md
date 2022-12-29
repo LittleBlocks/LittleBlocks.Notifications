@@ -1,7 +1,7 @@
-# Easify - Notification Services
+# LittleBlocks - Notification Services
 
 The project consist of several packages which facilitate sending notifications. It covers the following scenarios:
-![Release](https://github.com/icgam/Easify.Notifications/workflows/Release%20build%20on%20master/main/badge.svg) ![CI](https://github.com/icgam/Easify.Notifications/workflows/CI%20on%20Branches%20and%20PRs/badge.svg)  ![](https://img.shields.io/nuget/v/Easify.Notifications.svg?style=flat-square)
+![Release](https://github.com/LittleBlocks/LittleBlocks.Notifications/workflows/Release%20build%20on%20master/main/badge.svg) ![CI](https://github.com/LittleBlocks/LittleBlocks.Notifications/workflows/CI%20on%20Branches%20and%20PRs/badge.svg)  ![](https://img.shields.io/nuget/v/LittleBlocks.Notifications.svg?style=flat-square)
 
 1. Rendering the output message content (Current support is for handle bars using https://github.com/Antaris/FuManchu library)
 
@@ -14,13 +14,13 @@ The project consist of several packages which facilitate sending notifications. 
 Using NuGet
 
 ```
-Install-Package Easify.Notifications
+Install-Package LittleBlocks.Notifications
 ```
 
 Using dotnet cli
 
 ```
-dotnet add package Easify.Notifications
+dotnet add package LittleBlocks.Notifications
 ```
 
 ### Configuration

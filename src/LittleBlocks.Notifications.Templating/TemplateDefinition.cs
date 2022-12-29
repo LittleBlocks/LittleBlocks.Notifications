@@ -1,4 +1,4 @@
-// This software is part of the LittleBlocks framework
+﻿// This software is part of the LittleBlocks framework
 // Copyright (C) 2019 LittleBlocks
 //
 // This program is free software: you can redistribute it and/or modify
@@ -14,23 +14,21 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace LittleBlocks.Notifications;
+namespace LittleBlocks.Notifications.Templating;
 
-public class Notification<T> where T : class
+public sealed class TemplateDefinition
 {
-    public Notification(string title, string templateName, T data)
+    public TemplateDefinition(string name, string template)
     {
-        Title = title ?? throw new ArgumentNullException(nameof(title));
-        TemplateName = templateName ?? throw new ArgumentNullException(nameof(templateName));
-        Data = data ?? throw new ArgumentNullException(nameof(data));
+        if (string.IsNullOrWhiteSpace(template))
+            throw new ArgumentException("Value cannot be null or whitespace.", nameof(template));
+        if (string.IsNullOrWhiteSpace(name))
+            throw new ArgumentException("Value cannot be null or whitespace.", nameof(name));
+
+        Name = name;
+        Template = template;
     }
 
-    public string Title { get; }
-    public string TemplateName { get; }
-    public T Data { get; }
-
-    public Notification<T> From(string title, string templateName, T data)
-    {
-        return new Notification<T>(title, templateName, data);
-    }
+    public string Name { get; }
+    public string Template { get; }
 }
