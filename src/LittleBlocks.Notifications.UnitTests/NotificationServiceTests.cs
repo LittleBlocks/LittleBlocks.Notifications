@@ -109,6 +109,6 @@ public class NotificationServiceTests : IClassFixture<NotificationServiceFixture
         Func<Task> func = async () => await sut.SendNotificationAsync(notification, _fixture.ValidProfile);
 
         // Assert
-        func.Should().Throw<NotificationTemplateNotFoundException>();
+        func.Should().ThrowAsync<NotificationTemplateNotFoundException>();
     }
 }
