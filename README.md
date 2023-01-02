@@ -70,7 +70,7 @@ Also the following sections need to be added to the _appsettings.json_ file.
 },
 "SmtpOptions": {
     "Server": "Smtp server name",
-    "LocalDomain": "ICGPLC",
+    "LocalDomain": "LittleBlocks",
     "Port": "Optional. Default to 25"
 }
 
