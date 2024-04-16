@@ -11,11 +11,11 @@
         <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
         <Version>1.0.0</Version>
         <LangVersion>default</LangVersion>
-        <TargetFrameworks>net6.0;netstandard2.0;netstandard2.1</TargetFrameworks>
+        <TargetFrameworks>net8.0;net6.0;netstandard2.0;netstandard2.1</TargetFrameworks>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="FluentValidation" Version="11.4.0" />
+        <PackageReference Include="FluentValidation" Version="11.9.0" />
     </ItemGroup>
 
 </Project>
